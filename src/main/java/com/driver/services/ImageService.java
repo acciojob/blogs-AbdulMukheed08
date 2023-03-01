@@ -21,12 +21,11 @@ public class ImageService {
 
         Blog blog = blogRepository2.findById(blogId).get();
 
-        if(blog == null) return null;
-
-        blog.setImage(image);
         List<Image> imageList = blog.getImageList();
         imageList.add(image);
         blog.setImageList(imageList);
+
+        image.setBlog(blog);
 
         blogRepository2.save(blog);
 
