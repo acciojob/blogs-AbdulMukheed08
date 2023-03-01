@@ -16,7 +16,7 @@ public class User{
     private String firstName;
     private String lastName;
 
-    private List<Blog> blogList = new ArrayList<>();
+    private List<Blog> blogList;
 
     public User() {
     }
@@ -27,6 +27,7 @@ public class User{
         this.password = password;
         firstName = "test";
         lastName = "test";
+        this.blogList = new ArrayList<>();
     }
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
