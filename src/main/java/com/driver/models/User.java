@@ -1,6 +1,8 @@
 package com.driver.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -13,6 +15,8 @@ public class User{
     private String password;
     private String firstName;
     private String lastName;
+
+    private List<Blog> blogList = new ArrayList<>();
 
     public User() {
     }
@@ -74,5 +78,13 @@ public class User{
 
     public void setBlog(Blog blog) {
         this.blog = blog;
+    }
+
+    public List<Blog> getBlogList() {
+        return blogList;
+    }
+
+    public void setBlogList(List<Blog> blogList) {
+        this.blogList = blogList;
     }
 }

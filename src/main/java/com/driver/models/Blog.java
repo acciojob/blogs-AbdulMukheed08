@@ -1,7 +1,9 @@
 package com.driver.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "blog")
@@ -12,13 +14,15 @@ public class Blog{
     private String title;
     private String content;
 
-    private Date date;
+    private Date pubDate;
+
+    private List<Image> imageList = new ArrayList<>();
 
     public Blog() {
     }
 
     public Blog(String title, String content) {
-        this.date = new Date();
+        this.pubDate = new Date();
         this.title = title;
         this.content = content;
     }
@@ -72,11 +76,19 @@ public class Blog{
         this.content = content;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getPubDate() {
+        return pubDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setPubDate(Date date) {
+        this.pubDate = date;
+    }
+
+    public List<Image> getImageList() {
+        return imageList;
+    }
+
+    public void setImageList(List<Image> imageList) {
+        this.imageList = imageList;
     }
 }
